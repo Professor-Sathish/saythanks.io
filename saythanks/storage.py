@@ -120,7 +120,8 @@ class Inbox:
         r = db.query(q, slug=slug).all()
         try:
             return bool(r[0]['email_enabled'])
-        except:
+        except Exception as inst:
+            print("Exception details : ",inst,"Exception Type : ",type(inst),"Exception arguments : ",inst.args())
             return False
 
     @classmethod
@@ -139,7 +140,8 @@ class Inbox:
         r = db.query(q, slug=slug).all()
         try:
             return bool(r[0]['enabled'])
-        except:
+        except Exception as inst:
+            print("Exception details : ",inst,"Exception Type : ",type(inst),"Exception arguments : ",inst.args())
             return False
 
     @classmethod
